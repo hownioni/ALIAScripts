@@ -250,7 +250,7 @@ mount --mkdir "$phome" /mnt/home
 microcode_detector
 
 main_pkgs=(atool base base-devel bash-completion bat eza fd linux linux-firmware linux-headers man-db man-pages texinfo openssh pacman-contrib ripgrep sudo rsync zoxide wget "$microcode" grub reflector efibootmgr exfatprogs lostfiles namcap)
-apps=(xdg-user-dirs lf git htop hledger nano neovim npm perl-image-exiftool python-pip python-pipx python-pynvim trash-cli tree unzip unrar exiv2 odt2txt yt-dlp)
+apps=(xdg-user-dirs feh lf git htop hledger nano neovim npm perl-image-exiftool python-pip python-pipx python-pynvim trash-cli tree unzip unrar exiv2 odt2txt yt-dlp)
 if [[ "$dev_type" == "laptop" ]]; then
     apps+=(upower acpi)
 fi

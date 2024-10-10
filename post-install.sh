@@ -66,7 +66,7 @@ graphic_server_install() {
     main_pkgs=(xorg qtile ly xclip picom papirus-icon-theme playerctl udisks2 dunst bluez bluez-utils brightnessctl)
     audio_server=(pipewire-alsa wireplumber pipewire-audio pipewire-pulse pipewire-jack alsa-utils pavucontrol pamixer)
     fonts=(noto-fonts noto-fonts-emoji ttf-liberation gnu-free-fonts ttf-nerd-fonts-symbols ttf-firacode-nerd)
-    apps=(cups-pdf ffmpegthumbnailer libreoffice-fresh blueman bitwarden kitty firefox nsxiv rofi rofi-calc flameshot dwarffortress rofi-emoji udiskie syncthing mpv mpv-mpris feh copyq)
+    apps=(cups-pdf ffmpegthumbnailer libreoffice-fresh blueman bitwarden kitty firefox nsxiv rofi rofi-calc flameshot dwarffortress rofi-emoji udiskie syncthing mpv mpv-mpris copyq)
     yay_pkgs=(dragon-drop syncthingtray rofi-nerdy kitty-xterm-symlinks python-pulsectl-asyncio python-pywalfox zapzap)
 
     # Detect gpu for video driver installation
@@ -124,12 +124,14 @@ fi
 info_print "Cloning config and tracking it."
 if [[ ! -d "${HOME}/.dotfiles" ]]; then
     until get_repo; do :; done
-    git clone --bare "$dotfiles_repo" "$HOME"/.dotfiles
+    git clone --bare "$dotfiles_repo" "$HOME"/.dotfiles &>/dev/null
     dotfiles checkout -f
     dotfiles config --local status.showUntrackedFiles no
     if [[ "$dotfiles_repo" == *"hownioni/dotfiles"* ]]; then
         info_print "Installing some AUR packages required for my config."
+        git clone https://github.com/hownioni/Walls.git "$HOME"/Pictures/Wallpapers &>/dev/null
         yay -S --noconfirm bash-complete-alias pistol-git vimv python-pywal16 &>/dev/null
+        wal --cols16 -i "/home/migu/Pictures/Wallpapers/Synthwave/1_Trevor_Something_does_not_exist.png" &>/dev/null
     fi
 else
     info_print "There already exists a \"~/.dotfiles\" directory. Continuing."
