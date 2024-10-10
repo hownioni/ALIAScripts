@@ -291,7 +291,7 @@ if [[ "$wifi_chip" == *"RTL8723BE"* ]]; then
 fi
 
 # Configuring the system.
-info_print "Configuring the system (timezone, system clock, initramfs, Snapper, GRUB)."
+info_print "Configuring the system (timezone, locales, system clock, GRUB)."
 arch-chroot /mnt /bin/bash -e <<EOF
 
     # Setting up timezone.
