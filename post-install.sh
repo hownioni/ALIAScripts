@@ -59,7 +59,7 @@ gpu_detector() {
         video_drivers=(xf86-video-amdgpu vulkan-radeon lib32-vulkan-radeon mesa lib32-mesa)
     else
         info_print "An NVIDIA GPU has been detected, this currently needs more testing."
-        exit 0
+        exit 1
     fi
 }
 graphic_server_install() {
@@ -74,8 +74,8 @@ graphic_server_install() {
 
     # Install packages
     info_print "Installing the graphics server, display and window manager, along with some useful tools (this may take a while)."
-    sudo pacman -S --noconfirm "${main_pkgs[@]}" "${apps[@]}" "${fonts[@]}" "${video_drivers[@]}" "${audio_server[@]}" 2>/dev/null
-    exists yay && yay -S --noconfirm "${yay_pkgs[@]}" 2>/dev/null
+    sudo pacman -S --noconfirm "${main_pkgs[@]}" "${apps[@]}" "${fonts[@]}" "${video_drivers[@]}" "${audio_server[@]}" &>/dev/null
+    exists yay && yay -S --noconfirm "${yay_pkgs[@]}" &>/dev/null
 
     info_print "Enabling the display manager (ly) and CUPS."
     services=(ly.service cups.service)

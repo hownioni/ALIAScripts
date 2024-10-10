@@ -20,5 +20,5 @@ The **partitions layout** is the one I've always used for ext4:
 | ---------------- | ------------------------------------------------- | ---------- | ---------- |
 | 1                | 1 GiB                                             | /boot/     | FAT32      |
 | 2                | round(sqrt(RAM)) (plus your RAM if it's a laptop) | \[swap\]   | none       |
-| 3                | 32GiB                                             | /          | ext4      |
+| 3                | 32GiB                                             | /          | ext4       |
 | 4                | Rest of the disk                                  | /home/     | ext4       |
