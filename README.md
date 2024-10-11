@@ -4,8 +4,10 @@ These scripts are mainly for me to be able to reproduce my setup in any computer
 Very heavily based on [easy-arch](https://github.com/classy-giraffe/easy-arch), please check it out!
 
 ## Install
-
-### `bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/master/install.sh)`
+### Inside ISO
+`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/master/install.sh)`
+### Post-Install
+`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/master/post-install.sh)`
 
 ## Partitions layout
 
