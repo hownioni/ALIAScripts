@@ -348,7 +348,7 @@ shopt -s histappend
 # Ignore redundant or space commands
 HISTCONTROL=ignoreboth
 # Ignore more
-HISTIGNORE='ls:ll:ls -alh:pwd:clear:history'
+HISTIGNORE='ls:ll:la:pwd:clear:history'
 # Set time format
 HISTTIMEFORMAT='%F %T '
 # Multiple commands on one line show up as a single line
