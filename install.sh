@@ -329,7 +329,7 @@ info_print "Enabling colors, multilib, animations, and parallel downloads for pa
 sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /mnt/etc/pacman.conf
 arch-chroot /mnt /bin/bash -e <<EOF
-    pacman -Sy
+    pacman -Sy &>/dev/null
 EOF
 
 # Disabling debug packages for yay

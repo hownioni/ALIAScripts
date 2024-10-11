@@ -86,9 +86,9 @@ graphic_server_install() {
 
 yay_install() {
     info_print "Installing the yay AUR manager."
-    git clone https://aur.archlinux.org/yay.git
+    git clone https://aur.archlinux.org/yay.git &>/dev/null
     cd yay
-    makepkg -si
+    makepkg --noconfirm -si &>/dev/null
     cd .. && rm -rf yay
 }
 
