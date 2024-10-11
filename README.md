@@ -5,9 +5,9 @@ Very heavily based on [easy-arch](https://github.com/classy-giraffe/easy-arch), 
 
 ## Install
 ### Inside ISO
-`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/master/install.sh)`
+`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/main/install.sh)`
 ### Post-Install
-`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/master/post-install.sh)`
+`bash <(curl -sL https://raw.githubusercontent.com/hownioni/ALIAScripts/main/post-install.sh)`
 
 ## Partitions layout
 
