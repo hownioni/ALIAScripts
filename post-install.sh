@@ -77,7 +77,7 @@ graphic_server_install() {
     sudo pacman -S --noconfirm "${main_pkgs[@]}" "${apps[@]}" "${fonts[@]}" "${video_drivers[@]}" "${audio_server[@]}" &>/dev/null
     exists yay && yay -S --noconfirm "${yay_pkgs[@]}" &>/dev/null
 
-    sudo sed -Ei 's/^(animation =).*/\1 doom/;s/^(clock =).*/\1 %F %a - %r/;s/^(bigclock =).*/\1 true/;s/^(clear_password =).*/\1 true/;'
+    sudo sed -Ei 's/^(animation =).*/\1 doom/;s/^(clock =).*/\1 %F %a - %r/;s/^(bigclock =).*/\1 true/;s/^(clear_password =).*/\1 true/;' /etc/ly/config.ini
     sudo localectl set-x11-keymap latam pc105 deadtilde
 
     info_print "Enabling the display manager (ly) and CUPS."
