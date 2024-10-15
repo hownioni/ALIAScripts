@@ -134,7 +134,7 @@ if [[ ! -d "${HOME}/.dotfiles" ]]; then
         info_print "Installing some AUR packages required for my config."
         git clone https://github.com/hownioni/Walls.git "$HOME"/Pictures/Wallpapers &>/dev/null
         yay -S --noconfirm bash-complete-alias pistol-git vimv python-pywal16 &>/dev/null
-        wal --cols16 -i "$HOME"/Pictures/Wallpapers/Synthwave/1_Trevor_Something_does_not_exist.png" &>/dev/null
+        wal --cols16 -i "$HOME"/Pictures/Wallpapers/Synthwave/1_Trevor_Something_does_not_exist.png &>/dev/null
     fi
 else
     info_print "There already exists a \"~/.dotfiles\" directory. Continuing."
