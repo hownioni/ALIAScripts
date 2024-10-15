@@ -218,10 +218,10 @@ sgdisk -n 0:0:+"${sswap}"GiB -t 0:8200 -c 0:swap "$DISK"
 sgdisk -n 0:0:+32GiB -t 0:8304 -c 0:root "$DISK"
 sgdisk -n 0:0:0 -t 0:8302 -c 0:home "$DISK"
 
-pefi="/dev/sda1"
-pswap="/dev/sda2"
-proot="/dev/sda3"
-phome="/dev/sda4"
+pefi="/dev/disk/by-partlabel/boot"
+pswap="/dev/disk/by-partlabel/swap"
+proot="/dev/by-partlabel/root"
+phome="/dev/by-partlabel/home"
 
 # Informing the Kernel of the changes.
 info_print "Informing the Kernel about the disk changes."
