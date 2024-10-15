@@ -176,7 +176,8 @@ until keyboard_selector; do :; done
 # Choosing the target for the installation.
 info_print "Available disks for the installation:"
 PS3="Please select the number of the corresponding disk (e.g. 1): "
-select ENTRY in "$(lsblk -dpnoNAME | grep -P "/dev/sd|nvme|vd")"; do
+IFS=$'\n' read -rd '' -a aval_disks < <(lsblk -dpnoNAME | grep -P "/dev/sd|nvme|vd" && printf '\0')
+select ENTRY in "${aval_disks[@]}"; do
     DISK="$ENTRY"
     info_print "Arch Linux will be installed on the following disk: $DISK"
     break
