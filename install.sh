@@ -226,6 +226,7 @@ phome="/dev/disk/by-partlabel/home"
 # Informing the Kernel of the changes.
 info_print "Informing the Kernel about the disk changes."
 partprobe "$DISK"
+sleep 5
 
 # Formatting the EFI as FAT32.
 info_print "Formatting the EFI Partition as FAT32."
