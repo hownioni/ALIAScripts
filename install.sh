@@ -220,8 +220,8 @@ sgdisk -n 0:0:0 -t 0:8302 -c 0:home "$DISK"
 
 pefi="/dev/disk/by-partlabel/boot"
 pswap="/dev/disk/by-partlabel/swap"
-proot="/dev/by-partlabel/root"
-phome="/dev/by-partlabel/home"
+proot="/dev/disk/by-partlabel/root"
+phome="/dev/disk/by-partlabel/home"
 
 # Informing the Kernel of the changes.
 info_print "Informing the Kernel about the disk changes."
