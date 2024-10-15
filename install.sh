@@ -338,7 +338,7 @@ sed -Ei 's/ (debug lto)/ !\1/;s/^#(MAKEFLAGS=).*/\1\"--jobs=\$(nproc)\"/' /mnt/e
 
 # Better history
 info_print "Enabling better history search"
-cat >/etc/profile.d/bash_history.sh <<EOF
+cat >/mnt/etc/profile.d/bash_history.sh <<EOF
 # Save 10,000 lines of history in memory
 export HISTSIZE=10000
 # Save 200,000 lines of history to disk (will have to grep ~/.bash_history for full listing)
