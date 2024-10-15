@@ -218,10 +218,10 @@ sgdisk -n 0:0:+"${sswap}"GiB -t 0:8200 -c 0:swap "$DISK"
 sgdisk -n 0:0:+32GiB -t 0:8304 -c 0:root "$DISK"
 sgdisk -n 0:0:0 -t 0:8302 -c 0:home "$DISK"
 
-pefi="/dev/disk/by-partlabel/boot"
-pswap="/dev/disk/by-partlabel/swap"
-proot="/dev/disk/by-partlabel/root"
-phome="/dev/disk/by-partlabel/home"
+p_efi="/dev/disk/by-partlabel/boot"
+p_swap="/dev/disk/by-partlabel/swap"
+p_root="/dev/disk/by-partlabel/root"
+p_home="/dev/disk/by-partlabel/home"
 
 # Informing the Kernel of the changes.
 info_print "Informing the Kernel about the disk changes."
@@ -230,23 +230,23 @@ sleep 5
 
 # Formatting the EFI as FAT32.
 info_print "Formatting the EFI Partition as FAT32."
-mkfs.fat -F 32 "$pefi" &>/dev/null
+mkfs.fat -F 32 "$p_efi" &>/dev/null
 
 # Swap
 info_print "Making swap partition."
-mkswap "$pswap" &>/dev/null
+mkswap "$p_swap" &>/dev/null
 
 # Root and home
 info_print "Making root partition."
-mkfs.ext4 "$proot" &>/dev/null
+mkfs.ext4 "$p_root" &>/dev/null
 info_print "Making home partition."
-mkfs.ext4 "$phome" &>/dev/null
+mkfs.ext4 "$p_home" &>/dev/null
 
 # Mounting the system
-mount "$proot" /mnt
-swapon "$pswap"
-mount --mkdir "$pefi" /mnt/boot
-mount --mkdir "$phome" /mnt/home
+mount "$p_root" /mnt
+swapon "$p_swap"
+mount --mkdir "$p_efi" /mnt/boot
+mount --mkdir "$p_home" /mnt/home
 
 # Checking the microcode to install.
 microcode_detector
