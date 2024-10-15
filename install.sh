@@ -176,7 +176,7 @@ until keyboard_selector; do :; done
 # Choosing the target for the installation.
 info_print "Available disks for the installation:"
 PS3="Please select the number of the corresponding disk (e.g. 1): "
-select ENTRY in $(lsblk -dpnoNAME | grep -P "/dev/sd|nvme|vd"); do
+select ENTRY in "$(lsblk -dpnoNAME | grep -P "/dev/sd|nvme|vd")"; do
     DISK="$ENTRY"
     info_print "Arch Linux will be installed on the following disk: $DISK"
     break
@@ -340,17 +340,17 @@ sed -Ei 's/ (debug lto)/ !\1/;s/^#(MAKEFLAGS=).*/\1\"--jobs=\$(nproc)\"/' /mnt/e
 info_print "Enabling better history search"
 cat >/etc/profile.d/bash_history.sh <<EOF
 # Save 10,000 lines of history in memory
-HISTSIZE=10000
+export HISTSIZE=10000
 # Save 200,000 lines of history to disk (will have to grep ~/.bash_history for full listing)
-HISTFILESIZE=200000
+export HISTFILESIZE=200000
 # Append to history instead of overwrite
 shopt -s histappend
 # Ignore redundant or space commands
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 # Ignore more
-HISTIGNORE='ls:ll:la:pwd:clear:history'
+export HISTIGNORE='ls:ll:la:pwd:clear:history'
 # Set time format
-HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T '
 # Multiple commands on one line show up as a single line
 shopt -s cmdhist
 # Append new history lines, clear the history list, re-read the history list, print prompt.
