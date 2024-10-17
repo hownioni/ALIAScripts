@@ -62,6 +62,7 @@ gpu_detector() {
         exit 1
     fi
 }
+
 graphic_server_install() {
     main_pkgs=(xorg qtile ly xclip picom papirus-icon-theme playerctl udisks2 dunst bluez bluez-utils brightnessctl)
     audio_server=(pipewire-alsa wireplumber pipewire-audio pipewire-pulse pipewire-jack alsa-utils pavucontrol pamixer)
@@ -123,6 +124,12 @@ if ! exists yay; then
     else
         yay_install
     fi
+fi
+
+info_print "Checking to see if wifi drivers need fixing."
+wifi_chip=$(lspci -v | grep -A1 -E "Network")
+if [[ "$wifi_chip" == *"RTL8821CE"* ]]; then
+    exists yay && yay -S rtl8821ce-dkms-git &>/dev/null
 fi
 
 # Clone config

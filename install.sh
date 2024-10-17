@@ -251,7 +251,7 @@ mount --mkdir "$p_home" /mnt/home
 # Checking the microcode to install.
 microcode_detector
 
-main_pkgs=(atool base base-devel bash-completion bat eza fd linux linux-firmware linux-headers man-db man-pages texinfo openssh pacman-contrib ripgrep sudo rsync zoxide wget "$microcode" grub reflector efibootmgr exfatprogs lostfiles namcap)
+main_pkgs=(atool base base-devel bash-completion dkms bat eza fd linux linux-firmware linux-headers man-db man-pages texinfo openssh pacman-contrib ripgrep sudo rsync zoxide wget "$microcode" grub reflector efibootmgr exfatprogs lostfiles namcap)
 apps=(xdg-user-dirs feh lf git htop hledger nano neovim npm perl-image-exiftool python-pip python-pipx python-pynvim trash-cli tree unzip unrar exiv2 odt2txt yt-dlp)
 if [[ "$dev_type" == "laptop" ]]; then
     apps+=(upower acpi)
@@ -287,6 +287,7 @@ wifi.backend=iwd
 EOF
 systemctl enable NetworkManager --root=/mnt &>/dev/null
 
+info_print "Checking to see if wifi drivers need fixing."
 wifi_chip=$(lspci -v | grep -A1 -E "Network")
 if [[ "$wifi_chip" == *"RTL8723BE"* ]]; then
     echo "options rtl8723be swenc=1 fwlps=0 ips=0" >/mnt/etc/modprobe.d/rtl8723be.conf
