@@ -83,8 +83,8 @@ graphic_server_install() {
     sudo sed -Ei 's/^(animation =).*/\1 doom/;s/^(clock =).*/\1 %F %a - %r/;s/^(bigclock =).*/\1 true/;s/^(clear_password =).*/\1 true/;' /etc/ly/config.ini
     sudo localectl set-x11-keymap latam pc105 deadtilde
 
-    info_print "Enabling the display manager (ly) and CUPS."
-    services=(ly.service cups.service)
+    info_print "Enabling the display manager (ly), CUPS and bluetooh."
+    services=(ly.service cups.service bluetooth.service)
     for service in "${services[@]}"; do
         sudo systemctl enable "$service" &>/dev/null
     done
