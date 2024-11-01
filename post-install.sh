@@ -66,7 +66,7 @@ gpu_detector() {
 graphic_server_install() {
     main_pkgs=(xorg qtile ly xclip picom papirus-icon-theme playerctl udisks2 dunst bluez bluez-utils brightnessctl)
     audio_server=(pipewire-alsa wireplumber pipewire-audio pipewire-pulse pipewire-jack alsa-utils pavucontrol pamixer)
-    fonts=(noto-fonts noto-fonts-emoji ttf-liberation gnu-free-fonts ttf-nerd-fonts-symbols ttf-firacode-nerd)
+    fonts=(noto-fonts noto-fonts-emoji ttf-liberation gnu-free-fonts ttf-nerd-fonts-symbols ttf-fira-code ttf-firacode-nerd)
     apps=(cups-pdf ffmpegthumbnailer libreoffice-fresh blueman bitwarden kitty firefox nsxiv rofi rofi-calc flameshot dwarffortress rofi-emoji udiskie syncthing mpv mpv-mpris copyq)
     yay_pkgs=(dragon-drop syncthingtray rofi-nerdy kitty-xterm-symlinks python-pulsectl-asyncio python-pywalfox zapzap)
 
