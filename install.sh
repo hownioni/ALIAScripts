@@ -251,7 +251,7 @@ mount --mkdir "$p_home" /mnt/home
 # Checking the microcode to install.
 microcode_detector
 
-main_pkgs=(atool base base-devel bash-completion bat dkms eza fd linux linux-firmware linux-headers man-db man-pages texinfo openssh pacman-contrib ripgrep fzf sudo rsync zoxide wget "$microcode" grub reflector efibootmgr exfatprogs lostfiles namcap)
+main_pkgs=(ouch base base-devel bash-completion bat dkms eza fd linux linux-firmware linux-headers man-db man-pages texinfo openssh pacman-contrib ripgrep fzf sudo rsync zoxide wget "$microcode" grub reflector efibootmgr exfatprogs lostfiles namcap)
 apps=(xdg-user-dirs feh lf git htop hledger nano neovim npm perl-image-exiftool python-pip python-pipx python-pynvim trash-cli tree unzip unrar exiv2 odt2txt yt-dlp)
 if [[ "$dev_type" == "laptop" ]]; then
     apps+=(upower acpi)
