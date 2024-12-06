@@ -126,12 +126,6 @@ if ! exists yay; then
     fi
 fi
 
-info_print "Checking to see if wifi drivers need fixing."
-wifi_chip=$(lspci -v | grep -A1 -E "Network")
-if [[ "$wifi_chip" == *"RTL8821CE"* ]]; then
-    exists yay && yay -S rtl8821ce-dkms-git &>/dev/null
-fi
-
 # Clone config
 info_print "Cloning config and tracking it."
 if [[ ! -d "${HOME}/.dotfiles" ]]; then
